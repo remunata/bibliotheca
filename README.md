@@ -6,6 +6,7 @@ A simple CRUD Web Application for storing books data using [Laravel 10](https://
 
 1. Install php 8.1 - 8.2
 2. Install composer
+3. Install Node and NPM
 
 ## How to run
 
