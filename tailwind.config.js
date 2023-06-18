@@ -12,8 +12,16 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                sans: ['Poppins', ...defaultTheme.fontFamily.sans],
             },
+            colors: {
+                'magenta': '#ff9f9f4d',
+                'dark-magenta': '#ff9f9f',
+                'slight-magenta': '#ff9f9f80',
+                'yellow': '#fffad7',
+                'abu': '#7e7a7a',
+                'red': '#FF0000',
+            }
         },
     },
 

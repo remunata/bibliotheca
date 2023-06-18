@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BookController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,9 +19,14 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/', [BookController::class, 'index'])->name('dashboard');
+    Route::get('/books/create', [BookController::class, 'create'])->name('book.create');
+    Route::get('/books/manage', [BookController::class, 'manage'])->name('book.manage');
+    Route::post('/books', [BookController::class, 'store'])->name('book.store');
+});
+
+Route::resource('books', BookController::class)->except(['create', 'store'])->middleware(['auth', 'verified']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
